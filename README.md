@@ -1,6 +1,8 @@
 oauth2-jwt
 ==========
 
+[![Build status](https://badge.buildkite.com/3c3947d186528528143852895378ae1808e68766220f41e17b.svg?branch=master)](https://buildkite.com/formationai/oauth2-jwt)
+
 ```
 OAuth 2.0 JSON Web Token flow, commonly known as "two-legged OAuth 2.0"
 ```
