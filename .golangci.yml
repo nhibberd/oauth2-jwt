@@ -44,7 +44,7 @@ linters-settings:
     list-type: blacklist
     packages:
       - github.com/sebdah/goldie
-      - github.com/pkg/errors
+#      - github.com/pkg/errors
 
 
 issues:
