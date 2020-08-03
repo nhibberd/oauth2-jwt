@@ -1,0 +1,26 @@
+#!/bin/sh -eu
+
+section() {
+    echo "--- $(TZ=UTC date +%Y%m%d-%H:%M:%S) - $1"
+}
+
+openSection() {
+    echo "+++ $(TZ=UTC date +%Y%m%d-%H:%M:%S) - $1"
+}
+
+source ./.ci/go-version
+
+section "Setup"
+
+export GOOS="linux"
+
+section "Dependencies"
+$GO get './...' 2>&1 > /dev/null
+
+openSection "Test"
+$GO test './...'
+
+section "Build"
+$GO build -o /dev/null './...'
+
+section "done :tada:"

@@ -1,0 +1,18 @@
+steps:
+  - label: Build
+    timeout: 5
+    key: "build"
+    command:
+      - ".ci/build"
+    agents:
+      napali: true
+      queue: napali
+
+  - label: Lint
+    timeout: 5
+    key: "lint"
+    command:
+      - ".ci/lint"
+    agents:
+      napali: true
+      queue: napali

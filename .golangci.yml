@@ -1,0 +1,54 @@
+# This file contains all available configuration options
+# with their default values.
+
+# options for analysis running
+run:
+  # default concurrency is a available CPU number
+  concurrency: 16
+
+  # timeout for analysis, e.g. 30s, 5m, default is 1m
+  deadline: 1m
+
+  # exit code when at least one issue was found, default is 1
+  issues-exit-code: 1
+
+  # include test files or not, default is true
+  tests: true
+
+linters:
+  disable-all: true
+  enable:
+    - gosimple
+    - goimports
+    - misspell
+    - unconvert
+#    - interfacer
+    - goconst
+#    - gocritic
+    - errcheck
+    - gosec
+    - govet
+    - scopelint
+    - staticcheck
+    - typecheck
+    - depguard
+  presets:
+    - unused # deadcode, ineffassign, structcheck, unparam, unused, varcheck
+
+linters-settings:
+  errcheck:
+    # report about not checking of errors in type assertions: `a := b.(MyStruct)`;
+    # default is false: such cases aren't reported by default.
+    check-type-assertions: true
+  depguard:
+    list-type: blacklist
+    packages:
+      - github.com/sebdah/goldie
+      - github.com/pkg/errors
+
+
+issues:
+  exclude:
+    - composites
+
+max-same-issues: 0

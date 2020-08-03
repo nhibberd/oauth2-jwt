@@ -1,0 +1,10 @@
+#!/bin/sh -eu
+
+echo "--- $(TZ=UTC date +%Y%m%d-%H:%M:%S) - lint"
+set -x
+
+echo $PWD
+
+$(go env GOPATH)/bin/golangci-lint run
+
+set +x
